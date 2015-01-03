@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo level="info">Testing &apos;.;%JAVA_PATH%\bin;%JAVA_PATH%\lib;&apos; with locale &apos;${user.classpath}&apos;</echo>
+  <taskdef resource="webtest_base_relaxed.taskdef">
+    <classpath refid="maven.test.classpath"/>
+  </taskdef>
+  <mkdir dir="target/webtest-data"/>
+  <delete file="target/webtest-data/web-tests-result.xml"/>
+  <property name="test" value="run-all-tests"/>
+  <echo level="info">Testing &apos;testappfuse-1.0-SNAPSHOT&apos; with locale &apos;zh&apos;</echo>
+  <ant antfile="src/test/resources/web-tests.xml" target="${test}">
+    <property name="user.language" value="zh"/>
+    <property name="webapp.name" value="testappfuse-1.0-SNAPSHOT"/>
+    <property name="host" value="localhost"/>
+    <property name="port" value="8081"/>
+  </ant>
+</target>
+</project>

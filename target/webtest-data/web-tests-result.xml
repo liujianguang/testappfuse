@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<summary Implementation-Title="Canoo Webtest" Implementation-Version="R_1454">
+    <testresult endtime="Sat Jan 03 12:59:36 CST 2015"
+        location="f:\workspace\testappfuse\src\test\resources\web-tests.xml:23: "
+        starttime="Sat Jan 03 12:59:35 CST 2015" successful="no" testspecname="login">
+        <config>
+            <parameter name="summary" value="yes"/>
+            <parameter name="basepath" value="testappfuse-1.0-SNAPSHOT"/>
+            <parameter name="resultfile" value="web-tests-result.xml"/>
+            <parameter name="timeout" value="300"/>
+            <parameter name="showhtmlparseroutput" value="no"/>
+            <parameter name="saveprefix" value="response"/>
+            <parameter name="protocol" value="http"/>
+            <parameter name="resultpath" value="f:\workspace\testappfuse\target\webtest-data"/>
+            <parameter name="port" value="8081"/>
+            <parameter name="host" value="localhost"/>
+            <parameter name="saveresponse" value="yes"/>
+            <parameter name="haltonerror" value="yes"/>
+            <parameter name="haltonfailure" value="yes"/>
+        </config>
+        <results>
+            <step>
+                <parameter name="description" value="get Login Page"/>
+                <parameter name="taskName" value="invoke"/>
+                <parameter name="url" value="/"/>
+                <result>
+                    <failed duration="1060"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="description" value="we should see the login title"/>
+                <parameter name="regex" value="true"/>
+                <parameter name="taskName" value="verifytitle"/>
+                <parameter name="text" value=".*${login.title}.*"/>
+                <result>
+                    <notexecuted duration="0"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="description" value="set user name"/>
+                <parameter name="name" value="j_username"/>
+                <parameter name="taskName" value="setinputfield"/>
+                <parameter name="value" value="admin"/>
+                <result>
+                    <notexecuted duration="0"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="description" value="set password"/>
+                <parameter name="name" value="j_password"/>
+                <parameter name="taskName" value="setinputfield"/>
+                <parameter name="value" value="admin"/>
+                <result>
+                    <notexecuted duration="0"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="description" value="Click the submit button"/>
+                <parameter name="label" value="${button.login}"/>
+                <parameter name="taskName" value="clickbutton"/>
+                <result>
+                    <notexecuted duration="0"/>
+                </result>
+            </step>
+            <step>
+                <parameter name="description" value="Home Page follows if login ok"/>
+                <parameter name="regex" value="true"/>
+                <parameter name="taskName" value="verifytitle"/>
+                <parameter name="text" value=".*${mainMenu.title}.*"/>
+                <result>
+                    <notexecuted duration="0"/>
+                </result>
+            </step>
+            <error exception="com.canoo.webtest.engine.StepExecutionException" message="Unexpected exception caught: java.net.ConnectException: Connection refused: connect"><![CDATA[com.canoo.webtest.engine.StepExecutionException: Unexpected exception caught: java.net.ConnectException: Connection refused: connect, Step: InvokePage at f:\workspace\testappfuse\src\test\resources\login.xml:1:  with (taskName="invoke")
+	at com.canoo.webtest.steps.Step.handleUnexpectedException(Step.java:413)
+	at com.canoo.webtest.steps.AbstractBrowserAction.handleUnexpectedException(AbstractBrowserAction.java:120)
+	at com.canoo.webtest.steps.request.TargetHelper.protectedGoto(TargetHelper.java:115)
+	at com.canoo.webtest.steps.request.AbstractTargetAction.gotoTarget(AbstractTargetAction.java:106)
+	at com.canoo.webtest.steps.request.AbstractTargetAction.doExecute(AbstractTargetAction.java:78)
+	at com.canoo.webtest.steps.Step.execute(Step.java:106)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:292)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at com.canoo.webtest.ant.TestStepSequence.executeSteps(TestStepSequence.java:43)
+	at com.canoo.webtest.ant.TestStepSequence.doExecute(TestStepSequence.java:31)
+	at com.canoo.webtest.steps.Step.execute(Step.java:106)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at com.canoo.webtest.ant.WebtestTask.execute(WebtestTask.java:164)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:292)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:435)
+	at org.apache.tools.ant.Target.performTasks(Target.java:456)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1393)
+	at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1248)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:441)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:292)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:435)
+	at org.apache.tools.ant.Target.performTasks(Target.java:456)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1393)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1364)
+	at org.apache.maven.plugin.antrun.AntRunMojo.execute(AntRunMojo.java:313)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.commons.httpclient.protocol.ReflectionSocketFactory.createSocket(ReflectionSocketFactory.java:139)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:124)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:706)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1321)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:386)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:170)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:396)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at com.gargoylesoftware.htmlunit.HttpWebConnection.getResponse(HttpWebConnection.java:126)
+	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseFromWebConnection(WebClient.java:1371)
+	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponse(WebClient.java:1329)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:322)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:389)
+	at com.canoo.webtest.steps.request.TargetHelper.getResponse(TargetHelper.java:69)
+	at com.canoo.webtest.steps.request.AbstractTargetAction.getResponse(AbstractTargetAction.java:68)
+	at com.canoo.webtest.steps.request.InvokePage.findTarget(InvokePage.java:134)
+	at com.canoo.webtest.steps.request.AbstractTargetAction$1.call(AbstractTargetAction.java:108)
+	at com.canoo.webtest.steps.request.TargetHelper.protectedGoto(TargetHelper.java:88)
+	... 66 more
+]]></error>
+        </results>
+    </testresult>
+</summary>
